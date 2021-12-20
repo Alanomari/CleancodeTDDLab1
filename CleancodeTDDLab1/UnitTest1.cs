@@ -53,5 +53,19 @@ namespace CleancodeTDDLab1
 
             Assert.Equal(expectedMessage, exception.Message);
         }
+
+        [Theory]
+        [InlineData("2,1001", 2)]
+        [InlineData("1,1001", 1)]
+        [InlineData("1000,2", 1002)]
+        [InlineData("5,1200", 5)]
+        [InlineData("200,200, 4000", 400)]
+        public void IgnoreValueOver1000(string numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
