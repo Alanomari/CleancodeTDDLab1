@@ -13,7 +13,9 @@ namespace CleancodeTDDLab1
             if(String.IsNullOrEmpty(numbers))
             return 0;
 
-            var result = numbers.Split(',').Select(str => int.Parse(str)).Sum();
+            var delimiters = new[] { ',', '\n' };
+
+            var result = numbers.Split(delimiters).Select(str => int.Parse(str)).Sum();
 
             return result;
         }

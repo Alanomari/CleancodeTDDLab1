@@ -20,5 +20,16 @@ namespace CleancodeTDDLab1
 
             Assert.Equal(expectedResult, result);
         }
+
+
+        [Theory]
+        [InlineData("1\n2,3", 6)]
+        public void ReturnStringWithNewLineOrSeparatedNumbers(string numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
