@@ -41,5 +41,17 @@ namespace CleancodeTDDLab1
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("-2, 4", "Negatives not allowed -2")]
+        [InlineData("-6, -4", "Negatives not allowed -6,-4")]
+        public void ThrowNegativeNumbersExceptionMessage(string numbers, string expectedMessage)
+        {
+            Action action = () => _calculator.Add(numbers);
+
+            var exception = Assert.Throws<Exception>(action);
+
+            Assert.Equal(expectedMessage, exception.Message);
+        }
     }
 }
