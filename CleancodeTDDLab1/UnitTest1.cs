@@ -14,8 +14,9 @@ namespace CleancodeTDDLab1
 
         }
         [Theory]
-        [InlineData("1", 1)]
-        [InlineData("2", 2)]
+        [InlineData("1,2", 3)]
+        [InlineData("5,5", 10)]
+
         public void ReturnString(string numbers, int expectedResult)
         {
             var calculator = new StringCalculator();
