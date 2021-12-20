@@ -6,12 +6,14 @@ namespace CleancodeTDDLab1
     public class StringCalculaotrAddTest
     {
         [Fact]
-        public void Test1()
+        public void Return0()
         {
             var calculator = new StringCalculator();
 
             var result = calculator.Add("");
 
         }
+
+        
     }
 }
