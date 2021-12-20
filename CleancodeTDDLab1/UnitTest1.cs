@@ -8,7 +8,9 @@ namespace CleancodeTDDLab1
         [Fact]
         public void Test1()
         {
-            
+            var calculator = new StringCalculator();
+
+            var result = calculator.Add("");
 
         }
     }
