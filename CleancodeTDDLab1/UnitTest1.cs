@@ -3,7 +3,7 @@ using Xunit;
 
 namespace CleancodeTDDLab1
 {
-    public class StringCalculaotrAddTest
+    public class StringCalculatorAddTest
     {
         public StringCalculator _calculator = new StringCalculator();
 
@@ -61,6 +61,16 @@ namespace CleancodeTDDLab1
         [InlineData("5,1200", 5)]
         [InlineData("200,200, 4000", 400)]
         public void IgnoreValueOver1000(string numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Theory]
+        [InlineData("//[***]\n1***2***3", 6)]
+        public void ReturnStringWithAnyDelimiterLengthIfInSquareBraces(string numbers, int expectedResult)
         {
 
             var result = _calculator.Add(numbers);

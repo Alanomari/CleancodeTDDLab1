@@ -13,7 +13,7 @@ namespace CleancodeTDDLab1
             if(String.IsNullOrEmpty(numbers))
             return 0;
 
-            var delimiters = new List<char>  { ',', '\n' };
+            var delimiters = new List<char> { ',', '\n'};
 
             string numberString = numbers;
 
@@ -21,10 +21,17 @@ namespace CleancodeTDDLab1
             {
                 var splitInput = numberString.Split('\n');
                 var newDelimiter = splitInput.First().Trim('/');
+
+                //if (numberString[2] == '[')
+                //{
+
+                //}
+
                 numberString = String.Join('\n', splitInput.Skip(1));
                 delimiters.Add(Convert.ToChar(newDelimiter));
             }
-
+            
+           
             var numberList = numberString.Split(delimiters.ToArray()).Select(str => int.Parse(str));
 
             var negatives = numberList.Where(n => n < 0);
@@ -37,6 +44,23 @@ namespace CleancodeTDDLab1
             }
 
             var result = numberList.Where(n => n <= 1000).Sum();
+
+
+            //var result = numberList.Where(x => Char.IsDigit(x).ToString());
+
+            //String test = numbers;
+            //char[] chars = test.ToCharArray();
+            //StringBuilder sb = new StringBuilder();
+            //foreach (char c in chars)
+            //{
+            //    if (Char.IsDigit(c))
+            //    {
+            //        sb.Append(c);
+            //    }
+            //}
+
+            //result = Int32.Parse(test);
+
 
             return result;
         }
